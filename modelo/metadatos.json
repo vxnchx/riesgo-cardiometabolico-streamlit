@@ -1,0 +1,211 @@
+{
+  "modelo": "Regresión logística multinomial",
+  "version_seleccionada": "Antes (C = 1, segundo corte)",
+  "hiperparametros": {
+    "C": 1.0,
+    "class_weight": "balanced"
+  },
+  "semilla": 42,
+  "variables_numericas": [
+    "Edad",
+    "IMC",
+    "Glucosa_mg_dL",
+    "Presion_Sistolica_mmHg",
+    "Colesterol_mg_dL",
+    "Horas_Sueno",
+    "Nivel_Estres",
+    "Consultas_Medicas"
+  ],
+  "variables_categoricas": [
+    "Genero",
+    "Actividad_Fisica",
+    "Fumador"
+  ],
+  "categorias": {
+    "Genero": [
+      "Femenino",
+      "Masculino",
+      "Otro/No reporta"
+    ],
+    "Actividad_Fisica": [
+      "Alta",
+      "Baja",
+      "Moderada"
+    ],
+    "Fumador": [
+      "No",
+      "Sí"
+    ]
+  },
+  "rangos_observados": {
+    "Edad": [
+      18.0,
+      85.0
+    ],
+    "IMC": [
+      17.0,
+      58.2
+    ],
+    "Glucosa_mg_dL": [
+      62.0,
+      336.0
+    ],
+    "Presion_Sistolica_mmHg": [
+      85.0,
+      226.0
+    ],
+    "Colesterol_mg_dL": [
+      115.0,
+      266.0
+    ],
+    "Horas_Sueno": [
+      3.8,
+      9.8
+    ],
+    "Nivel_Estres": [
+      1.0,
+      10.0
+    ],
+    "Consultas_Medicas": [
+      0.0,
+      9.0
+    ]
+  },
+  "medianas": {
+    "Edad": 47.0,
+    "IMC": 26.85,
+    "Glucosa_mg_dL": 103.0,
+    "Presion_Sistolica_mmHg": 122.0,
+    "Colesterol_mg_dL": 189.5,
+    "Horas_Sueno": 7.1,
+    "Nivel_Estres": 5.0,
+    "Consultas_Medicas": 3.0
+  },
+  "clases": [
+    "Bajo",
+    "Medio",
+    "Alto"
+  ],
+  "n_entrenamiento": 372,
+  "n_prueba": 125,
+  "metricas_prueba": {
+    "accuracy": 0.856,
+    "precision_macro": 0.8541358516327225,
+    "recall_macro": 0.8582119246571075,
+    "f1_macro": 0.8559537084691485,
+    "accuracy_entrenamiento": 0.8709677419354839
+  },
+  "metricas_por_clase": {
+    "Bajo": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9302325581395349,
+      "f1-score": 0.9195402298850575,
+      "support": 43.0
+    },
+    "Medio": {
+      "precision": 0.8297872340425532,
+      "recall": 0.7959183673469388,
+      "f1-score": 0.8125,
+      "support": 49.0
+    },
+    "Alto": {
+      "precision": 0.8235294117647058,
+      "recall": 0.8484848484848485,
+      "f1-score": 0.835820895522388,
+      "support": 33.0
+    }
+  },
+  "validacion_cruzada": {
+    "accuracy_media": 0.8410707070707069,
+    "f1_macro_media": 0.8440907199912445,
+    "f1_macro_desv": 0.029693496274235717,
+    "f1_macro_particiones": [
+      0.8331564986737402,
+      0.8379030580403578,
+      0.8175416403120388,
+      0.9019278966647389,
+      0.8299245062653468
+    ]
+  },
+  "matriz_confusion": [
+    [
+      40,
+      3,
+      0
+    ],
+    [
+      4,
+      39,
+      6
+    ],
+    [
+      0,
+      5,
+      28
+    ]
+  ],
+  "antes_despues": [
+    {
+      "Versión": "Antes (C = 1, segundo corte)",
+      "Accuracy": 0.856,
+      "Precision_macro": 0.8541,
+      "Recall_macro": 0.8582,
+      "F1_macro": 0.856,
+      "Recall_Alto": 0.8485,
+      "Accuracy_train": 0.871,
+      "Accuracy_CV": 0.8411,
+      "F1_macro_CV": 0.8441,
+      "F1_macro_CV_desv": 0.0297,
+      "Alto_no_detectados": 5
+    },
+    {
+      "Versión": "Después (optimizado)",
+      "Accuracy": 0.816,
+      "Precision_macro": 0.8183,
+      "Recall_macro": 0.8214,
+      "F1_macro": 0.8197,
+      "Recall_Alto": 0.8485,
+      "Accuracy_train": 0.871,
+      "Accuracy_CV": 0.8311,
+      "F1_macro_CV": 0.8347,
+      "F1_macro_CV_desv": 0.0415,
+      "Alto_no_detectados": 5
+    }
+  ],
+  "comparacion_modelos_corte2": [
+    {
+      "Modelo": "Regresión logística",
+      "Accuracy": 0.856,
+      "Precision_macro": 0.8541,
+      "Recall_macro": 0.8582,
+      "F1_macro": 0.856,
+      "Recall_Alto": 0.8485,
+      "F1_macro_CV": 0.8441
+    },
+    {
+      "Modelo": "Árbol de decisión",
+      "Accuracy": 0.648,
+      "Precision_macro": 0.6765,
+      "Recall_macro": 0.6464,
+      "F1_macro": 0.6563,
+      "Recall_Alto": 0.6061,
+      "F1_macro_CV": 0.6268
+    },
+    {
+      "Modelo": "Random forest",
+      "Accuracy": 0.832,
+      "Precision_macro": 0.8494,
+      "Recall_macro": 0.8368,
+      "F1_macro": 0.8378,
+      "Recall_Alto": 0.9091,
+      "F1_macro_CV": 0.7799
+    }
+  ],
+  "versiones": {
+    "python": "3.12.13",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.1",
+    "numpy": "2.5.4",
+    "joblib": "1.6.0"
+  }
+}
