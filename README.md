@@ -6,7 +6,7 @@ Proyecto de aula de **Minería de Datos**, Universidad de la Costa (CUC). Tercer
 **Profesor:** José Escorcia-Gutierrez
 
 🔗 **Aplicación pública:** `https://<pendiente>.streamlit.app` <!-- reemplazar por la URL de Streamlit Community Cloud -->
-🔗 **Repositorio:** `https://github.com/<usuario>/<repositorio>` <!-- reemplazar -->
+🔗 **Repositorio:** https://github.com/vxnchx/riesgo-cardiometabolico-streamlit
 
 > ⚠️ **Prototipo académico.** Los datos son sintéticos. La aplicación no realiza diagnósticos médicos y no sustituye la valoración de un profesional de la salud.
 
