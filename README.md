@@ -1,6 +1,6 @@
 # Predicción del nivel de riesgo cardiometabólico · App en Streamlit
 
-Proyecto de aula de **Minería de Datos**, Universidad de la Costa (CUC). Tercer corte, actividad 1: integración y despliegue del modelo con Streamlit.
+Proyecto de aula de **Minería de Datos**, Universidad de la Costa (CUC). Entrega final (tercer corte): modelo, pruebas y despliegue con Streamlit.
 
 **Integrantes:** Iván David Pertuz · Diego Llanos
 **Profesor:** José Escorcia-Gutierrez
@@ -42,6 +42,7 @@ La aplicación clasifica el **nivel de riesgo cardiometabólico (Bajo, Medio, Al
 │   ├── metadatos.json                     # métricas, matriz de confusión, rangos y versiones
 │   └── conjunto_prueba.csv                # 125 registros de prueba con la predicción del notebook
 └── figuras/                               # figuras del EDA y la evaluación
+    └── capturas/                          # capturas de las pruebas de la app (figuras 13 a 17 del artículo)
 ```
 
 ## Ejecución local
@@ -68,6 +69,8 @@ Para regenerar el modelo, ejecute el notebook `Avance3_Proyecto_Pertuz_Llanos.ip
 |---|---|---|
 | Caso normal | Botón **Caso normal** (45 años, IMC 26.5, glucosa 100, presión 120, colesterol 190, 7 h de sueño, estrés 5, 2 consultas, Femenino, actividad Moderada, no fuma) | **Bajo** (P = 0.505; Medio 0.492; Alto 0.003), igual que la celda "Caso normal" del notebook (sección 6.5). Como las dos clases más probables están cerca, la app avisa que el caso está en una zona de transición |
 | Entrada inválida | Por ejemplo, glucosa = 900, edad = 10 o nivel de estrés = 15 | Mensaje de error por cada campo fuera de rango; **no** se predice |
+| Valores límite | Edad 100, glucosa 400, estrés 10, sueño 14 | Predice y advierte que el modelo extrapola fuera del rango de entrenamiento |
+| Entrada incompleta | Borrar un campo numérico (por ejemplo, consultas médicas) | Mensaje "falta el valor"; **no** se predice |
 | Registro conocido del conjunto de prueba | Seleccionar un `ID_Paciente` y pulsar **Cargar registro**, luego **Predecir** | La tabla de verificación muestra que la clase y las probabilidades coinciden con las del notebook (`modelo/conjunto_prueba.csv`) |
 
 Además, el notebook (sección 6.5) comprueba con `assert` que el pipeline cargado desde disco reproduce exactamente las predicciones y probabilidades de los 125 registros de prueba.

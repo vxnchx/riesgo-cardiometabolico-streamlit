@@ -204,8 +204,9 @@ with tab_proy:
             "más con la clasificación?*\n\n"
             "Se compararon tres clasificadores (regresión logística, árbol de decisión y random forest). Se "
             "seleccionó la **regresión logística multinomial** por su mejor F1-macro en prueba y en validación "
-            "cruzada, su baja brecha entre entrenamiento y prueba, su recall en la clase Alto y la "
-            "interpretabilidad de sus coeficientes. En el tercer corte se ajustó su regularización con validación "
+            "cruzada, su baja brecha entre entrenamiento y prueba, la ausencia de confusiones Bajo ↔ Alto y la "
+            "interpretabilidad de sus coeficientes (el random forest detecta más casos Alto en prueba, pero es "
+            "menos estable en validación cruzada). En el tercer corte se ajustó su regularización con validación "
             "cruzada y el pipeline completo se exportó con `joblib` para esta aplicación."
         )
         st.subheader("Fuente de los datos")
@@ -319,8 +320,11 @@ with tab_pred:
         entrada = {}
         for i, (var, cfg) in enumerate(VARIABLES_NUMERICAS.items()):
             # Sin min/max en el widget: la validación propia muestra mensajes claros si el valor es inválido.
+            # value=None: un campo borrado llega como None (y se rechaza) en lugar de convertirse en 0.
             entrada[var] = cols[i % 3].number_input(
                 f"{cfg['etiqueta']} ({cfg['unidad']})",
+                value=None,
+                placeholder="Ingrese un valor",
                 step=cfg["paso"],
                 format="%d" if cfg["entero"] else ("%.1f" if cfg["paso"] < 1 else "%.0f"),
                 help=f"{cfg['ayuda']} Rango válido: {cfg['rango'][0]} a {cfg['rango'][1]}.",
@@ -464,7 +468,8 @@ with tab_metr:
         cm2 = pd.DataFrame(meta["comparacion_modelos_corte2"]).set_index("Modelo")
         st.dataframe(cm2.style.format("{:.3f}"), width="stretch")
         st.caption("La regresión logística obtuvo el mejor F1-macro en prueba y en validación cruzada. El random "
-                   "forest sobreajusta (F1 de entrenamiento ≈ 0.985) y el árbol de decisión rinde menos.")
+                   "forest tiene mayor recall en la clase Alto en prueba, pero sobreajusta (F1 de entrenamiento en "
+                   "validación cruzada ≈ 0.980) y el árbol de decisión rinde menos.")
 
 # ---------------------------------------------------------------------------
 # 5. Limitaciones
