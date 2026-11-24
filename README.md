@@ -43,7 +43,7 @@ La aplicación clasifica el **nivel de riesgo cardiometabólico (Bajo, Medio, Al
 │   ├── metadatos.json                     # métricas, matriz de confusión, rangos y versiones
 │   └── conjunto_prueba.csv                # 125 registros de prueba con la predicción del notebook
 └── figuras/                               # figuras del EDA y la evaluación
-    └── capturas/                          # capturas de las pruebas de la app (figuras 13 a 17 del artículo)
+    └── capturas/                          # capturas de las pruebas de la app (figuras 13 a 18 del artículo)
 ```
 
 ## Ejecución local
