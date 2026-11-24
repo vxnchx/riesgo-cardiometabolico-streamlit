@@ -34,6 +34,7 @@ La aplicación clasifica el **nivel de riesgo cardiometabólico (Bajo, Medio, Al
 ├── app.py                                 # aplicación Streamlit
 ├── requirements.txt                       # dependencias (versiones fijadas)
 ├── README.md
+├── Articulo_Final_Pertuz_Llanos.pdf       # artículo final de la entrega (corte 3)
 ├── Avance3_Proyecto_Pertuz_Llanos.ipynb   # notebook actualizado (secciones 1-5 del corte 2 + sección 6 nueva)
 ├── Avance2_Proyecto_Pertuz_Llanos.ipynb   # notebook del segundo corte (referencia)
 ├── Dataset_Sintetico_Salud_EDA.xlsx       # datos (sintéticos)
